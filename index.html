@@ -1,17 +1,11 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Soham's Website</title>
 
-    <!-- Stylish Fonts -->
+    <!-- Stylish Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 
     <style>
 
@@ -28,358 +22,227 @@
             overflow-x: hidden;
         }
 
-
-        /* ✨ MOVING LIGHTS */
+        /* Moving background lights */
 
         body::before {
             content: "";
             position: fixed;
-
             width: 400px;
             height: 400px;
-
             background: #00eaff;
-
             border-radius: 50%;
-
             filter: blur(150px);
-
             opacity: 0.18;
-
             top: 10%;
             left: -150px;
-
             animation: moveLight 7s infinite alternate;
-
             z-index: -1;
         }
-
 
         body::after {
             content: "";
-
             position: fixed;
-
             width: 350px;
             height: 350px;
-
             background: #8a2be2;
-
             border-radius: 50%;
-
             filter: blur(150px);
-
-            opacity: 0.20;
-
+            opacity: 0.2;
             right: -150px;
             bottom: 10%;
-
             animation: moveLight2 8s infinite alternate;
-
             z-index: -1;
         }
 
-
         @keyframes moveLight {
-
             from {
                 transform: translateY(0);
             }
-
             to {
                 transform: translateY(300px);
             }
-
         }
 
-
         @keyframes moveLight2 {
-
             from {
                 transform: translateY(0);
             }
-
             to {
                 transform: translateY(-300px);
             }
-
         }
 
-
-        /* 🌐 NAVIGATION */
+        /* Navigation */
 
         nav {
-
             position: sticky;
             top: 0;
-
             z-index: 100;
 
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
 
             padding: 18px 8%;
 
             background: rgba(5,5,16,0.75);
-
             backdrop-filter: blur(15px);
 
             border-bottom: 1px solid rgba(0,234,255,0.3);
-
         }
-
 
         nav h2 {
-
             margin: 0;
-
             font-family: "Orbitron";
-
             color: #00eaff;
-
             text-shadow: 0 0 15px #00eaff;
-
         }
-
 
         nav a {
-
             color: white;
-
             text-decoration: none;
-
             margin-left: 20px;
-
             transition: 0.3s;
-
         }
-
 
         nav a:hover {
-
             color: #00eaff;
-
             text-shadow: 0 0 10px #00eaff;
-
         }
 
-
-        /* ⚡ HOME */
+        /* Hero */
 
         .hero {
-
             min-height: 90vh;
 
             display: flex;
-
             justify-content: center;
-
             align-items: center;
 
             text-align: center;
-
             padding: 30px;
 
             background:
-
-            radial-gradient(
-
-                circle at center,
-
+                radial-gradient(circle at center,
                 rgba(0,234,255,0.12),
-
-                transparent 50%
-
-            );
-
+                transparent 50%);
         }
-
 
         .hero-content {
-
             animation: appear 1.5s ease;
-
         }
 
-
         @keyframes appear {
-
             from {
-
                 opacity: 0;
-
                 transform: translateY(40px);
-
             }
 
             to {
-
                 opacity: 1;
-
                 transform: translateY(0);
-
             }
-
         }
 
-
         .hero h1 {
-
             font-family: "Orbitron";
-
             font-size: clamp(38px, 8vw, 75px);
 
             color: white;
 
             text-shadow:
-
                 0 0 10px #00eaff,
-
                 0 0 30px #00eaff,
-
                 0 0 60px #0077ff;
 
             animation: glow 2s infinite alternate;
-
         }
 
-
         @keyframes glow {
-
             from {
-
                 text-shadow:
-
                 0 0 10px #00eaff,
-
                 0 0 25px #00eaff;
-
             }
 
             to {
-
                 text-shadow:
-
                 0 0 20px #00eaff,
-
                 0 0 50px #0077ff,
-
                 0 0 80px #8a2be2;
-
             }
-
         }
-
 
         .hero p {
-
             font-size: 20px;
-
             color: #d7eaff;
-
         }
 
-
-        /* ⚡ BUTTON */
+        /* Button */
 
         .btn {
-
             display: inline-block;
 
             margin-top: 20px;
-
             padding: 14px 30px;
 
             border: 1px solid #00eaff;
-
             border-radius: 30px;
 
             color: #00eaff;
-
             text-decoration: none;
 
             box-shadow:
-
                 0 0 10px #00eaff,
-
                 inset 0 0 10px rgba(0,234,255,0.2);
 
             transition: 0.3s;
-
         }
 
-
         .btn:hover {
-
             background: #00eaff;
-
             color: #050510;
 
             box-shadow:
-
                 0 0 20px #00eaff,
-
                 0 0 50px #00eaff;
-
         }
 
-
-        /* 📖 SECTIONS */
+        /* Sections */
 
         section {
-
             padding: 90px 8%;
-
             text-align: center;
-
         }
 
-
         section h2 {
-
             font-family: "Orbitron";
-
             font-size: 35px;
-
             color: #00eaff;
 
             text-shadow: 0 0 15px #00eaff;
 
             margin-bottom: 40px;
-
         }
 
-
-        /* 💎 CARDS */
+        /* Cards */
 
         .cards {
-
             display: flex;
-
             flex-wrap: wrap;
-
             justify-content: center;
-
             gap: 25px;
-
         }
 
-
         .box {
-
             position: relative;
 
-            width: 280px;
-
+            width: 270px;
             padding: 30px;
 
             background: rgba(255,255,255,0.04);
 
             border: 1px solid rgba(0,234,255,0.3);
-
             border-radius: 20px;
 
             backdrop-filter: blur(10px);
@@ -387,195 +250,149 @@
             transition: 0.4s;
 
             overflow: hidden;
-
         }
 
+        .box::before {
+            content: "";
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            background: #00eaff;
+            border-radius: 50%;
+
+            filter: blur(60px);
+            opacity: 0;
+
+            transition: 0.4s;
+        }
 
         .box:hover {
-
             transform: translateY(-12px) scale(1.03);
 
             border-color: #00eaff;
 
             box-shadow:
-
                 0 0 20px rgba(0,234,255,0.5),
-
                 0 0 50px rgba(0,234,255,0.15);
-
         }
 
+        .box:hover::before {
+            opacity: 0.5;
+        }
 
         .box h3 {
-
             font-family: "Orbitron";
-
-            color: white;
-
+            color: #ffffff;
             text-shadow: 0 0 10px #00eaff;
-
         }
-
 
         .box p {
-
             color: #c9d7e5;
-
             line-height: 1.7;
-
         }
 
-
-        /* 👤 ABOUT */
+        /* About */
 
         .about-box {
-
             max-width: 750px;
-
             margin: auto;
-
         }
 
-
-        /* 🏸 HOBBY */
-
-        .hobby-box {
-
-            max-width: 650px;
-
-            margin: auto;
-
-        }
-
-
-        .badminton {
-
-            font-size: 55px;
-
-            margin-bottom: 10px;
-
-            animation: bounce 2s infinite;
-
-        }
-
-
-        @keyframes bounce {
-
-            0%, 100% {
-
-                transform: translateY(0);
-
-            }
-
-            50% {
-
-                transform: translateY(-12px);
-
-            }
-
-        }
-
-
-        /* 💻 PROJECT */
+        /* Project */
 
         .project {
-
             max-width: 700px;
-
             margin: auto;
-
         }
 
+        /* Hobbies */
 
-        /* 🌟 FOOTER */
+        .hobby-card {
+            width: 230px;
+            min-height: 200px;
+        }
+
+        .hobby-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+            animation: floatIcon 2s infinite alternate;
+        }
+
+        @keyframes floatIcon {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Footer */
 
         footer {
-
             padding: 30px;
-
             text-align: center;
 
             border-top: 1px solid rgba(0,234,255,0.3);
 
             color: #9bb0c4;
-
         }
-
 
         footer span {
-
             color: #00eaff;
-
             text-shadow: 0 0 10px #00eaff;
-
         }
 
-
-        /* 📱 MOBILE */
+        /* Mobile */
 
         @media (max-width: 600px) {
 
             nav {
-
                 flex-direction: column;
-
                 gap: 12px;
-
             }
-
 
             nav a {
-
                 margin: 5px;
-
                 font-size: 14px;
-
             }
-
 
             .hero {
-
                 min-height: 85vh;
-
             }
 
-
             section {
-
                 padding: 70px 20px;
-
             }
 
         }
 
     </style>
-
 </head>
 
 
 <body>
 
-
-    <!-- 🌐 NAVIGATION -->
+    <!-- Navigation -->
 
     <nav>
 
         <h2>SOHAM</h2>
 
         <div>
-
             <a href="#about">About</a>
-
-            <a href="#hobby">Hobby</a>
-
+            <a href="#likes">Likes</a>
+            <a href="#hobbies">Hobbies</a>
             <a href="#project">Project</a>
-
         </div>
 
     </nav>
 
 
-    <!-- ⚡ HOME -->
+    <!-- Home -->
 
     <div class="hero">
 
@@ -596,7 +413,7 @@
     </div>
 
 
-    <!-- 👤 ABOUT ME -->
+    <!-- About -->
 
     <section id="about">
 
@@ -615,32 +432,124 @@
     </section>
 
 
-    <!-- 🏸 MY HOBBY -->
+    <!-- Likes -->
 
-    <section id="hobby">
+    <section id="likes">
 
-        <h2>My Hobby 🏸</h2>
+        <h2>Things I Like</h2>
 
-        <div class="box hobby-box">
+        <div class="cards">
 
-            <div class="badminton">
-                🏸
+            <div class="box">
+
+                <h3>💻 Technology</h3>
+
+                <p>
+                    I like computers, coding and learning about technology.
+                </p>
+
             </div>
 
-            <h3>Playing Badminton</h3>
 
-            <p>
-                My hobby is playing badminton. I especially like
-                playing badminton with my best friend. We have lots
-                of fun together and enjoy every game we play.
-            </p>
+            <div class="box">
+
+                <h3>🔬 Science</h3>
+
+                <p>
+                    I enjoy science, experiments and discovering how things work.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🌿 Nature</h3>
+
+                <p>
+                    I care about no one...expect one
+                </p>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- 💻 MY PROJECT -->
+    <!-- Hobbies -->
+
+    <section id="hobbies">
+
+        <h2>My Hobbies ⚡</h2>
+
+        <div class="cards">
+
+            <!-- Gaming -->
+
+            <div class="box hobby-card">
+
+                <div class="hobby-icon">🎮</div>
+
+                <h3>Gaming</h3>
+
+                <p>
+                    I enjoy playing games and having fun in my free time.
+                </p>
+
+            </div>
+
+
+            <!-- Music -->
+
+            <div class="box hobby-card">
+
+                <div class="hobby-icon">🎧</div>
+
+                <h3>Music</h3>
+
+                <p>
+                    I like listening to music and discovering new songs.
+                </p>
+
+            </div>
+
+
+            <!-- Photography -->
+
+            <div class="box hobby-card">
+
+                <div class="hobby-icon">📸</div>
+
+                <h3>Photography</h3>
+
+                <p>
+                    I like photography and capturing beautiful and interesting moments.
+                </p>
+
+            </div>
+
+
+            <!-- Coding -->
+
+            <div class="box hobby-card">
+
+                <div class="hobby-icon">💻</div>
+
+                <h3>Coding</h3>
+
+                <p>
+                    I like learning coding and creating new things with it.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Project -->
 
     <section id="project">
 
@@ -648,7 +557,7 @@
 
         <div class="box project">
 
-           <h3>  Learning Coding</h3>
+            <h3>Learning Coding</h3>
 
             <p>
                 I am working on a project about how to learn coding.
@@ -659,7 +568,7 @@
     </section>
 
 
-    <!-- ⚡ FOOTER -->
+    <!-- Footer -->
 
     <footer>
 
@@ -671,5 +580,4 @@
 
 
 </body>
-
 </html>
