@@ -1,0 +1,1490 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+    <title>Soham's Website</title>
+
+    <!-- Stylish Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #050510;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Moving background lights */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: #00eaff;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.18;
+            top: 10%;
+            left: -150px;
+            animation: moveLight 7s infinite alternate;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: #8a2be2;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.2;
+            right: -150px;
+            bottom: 10%;
+            animation: moveLight2 8s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes moveLight {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(300px);
+            }
+        }
+
+        @keyframes moveLight2 {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-300px);
+            }
+        }
+
+
+        /* Navigation */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(5,5,16,0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(0,234,255,0.3);
+        }
+
+        nav h2 {
+            margin: 0;
+            font-family: "Orbitron";
+            color: #00eaff;
+            text-shadow: 0 0 15px #00eaff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+
+        /* Hero */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
+
+            background:
+                radial-gradient(circle at center,
+                rgba(0,234,255,0.12),
+                transparent 50%);
+        }
+
+        .hero-content {
+            animation: appear 1.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: "Orbitron";
+            font-size: clamp(38px, 8vw, 75px);
+
+            color: white;
+
+            text-shadow:
+                0 0 10px #00eaff,
+                0 0 30px #00eaff,
+                0 0 60px #0077ff;
+
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                0 0 10px #00eaff,
+                0 0 25px #00eaff;
+            }
+
+            to {
+                text-shadow:
+                0 0 20px #00eaff,
+                0 0 50px #0077ff,
+                0 0 80px #8a2be2;
+            }
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #d7eaff;
+        }
+
+
+        /* Button */
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 14px 30px;
+
+            border: 1px solid #00eaff;
+            border-radius: 30px;
+
+            color: #00eaff;
+            text-decoration: none;
+
+            box-shadow:
+                0 0 10px #00eaff,
+                inset 0 0 10px rgba(0,234,255,0.2);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00eaff;
+            color: #050510;
+
+            box-shadow:
+                0 0 20px #00eaff,
+                0 0 50px #00eaff;
+        }
+
+
+        /* Sections */
+
+        section {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-family: "Orbitron";
+            font-size: 35px;
+            color: #00eaff;
+
+            text-shadow: 0 0 15px #00eaff;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* Cards */
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .box {
+            position: relative;
+
+            width: 270px;
+            padding: 30px;
+
+            background: rgba(255,255,255,0.04);
+
+            border: 1px solid rgba(0,234,255,0.3);
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.4s;
+
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: "";
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            background: #00eaff;
+            border-radius: 50%;
+
+            filter: blur(60px);
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .box:hover {
+            transform: translateY(-12px) scale(1.03);
+
+            border-color: #00eaff;
+
+            box-shadow:
+                0 0 20px rgba(0,234,255,0.5),
+                0 0 50px rgba(0,234,255,0.15);
+        }
+
+        .box:hover::before {
+            opacity: 0.5;
+        }
+
+        .box h3 {
+            font-family: "Orbitron";
+            color: #ffffff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        .box p {
+            color: #c9d7e5;
+            line-height: 1.7;
+        }
+
+
+        /* About */
+
+        .about-box {
+            max-width: 750px;
+            margin: auto;
+        }
+
+
+        /* Project */
+
+        .project {
+            max-width: 700px;
+            margin: auto;
+        }
+
+
+        /* Footer */
+
+        footer {
+            padding: 30px;
+            text-align: center;
+
+            border-top: 1px solid rgba(0,234,255,0.3);
+
+            color: #9bb0c4;
+        }
+
+        footer span {
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 85vh;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <h2>SOHAM</h2>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#likes">Likes</a>
+            <a href="#project">Project</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Home -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>Hello! I'm Soham 👋</h1>
+
+            <p>
+                Welcome to my personal website!
+            </p>
+
+            <a href="#about" class="btn">
+                Explore My World ⚡
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- About -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <div class="box about-box">
+
+            <p>
+                Hello! My name is Soham. I am a student and I enjoy
+                learning new things, exploring science and technology,
+                and working on interesting projects.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Likes -->
+
+    <section id="likes">
+
+        <h2>Things I Like</h2>
+
+        <div class="cards">
+
+
+            <div class="box">
+
+                <h3>💻 Technology</h3>
+
+                <p>
+                    I like computers, coding and learning about technology.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🔬 Science</h3>
+
+                <p>
+                    I enjoy science, experiments and discovering how things work.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🌍 Nature</h3>
+
+                <p>
+                    I care about no one.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Project -->
+
+    <section id="project">
+
+        <h2>My Project</h2>
+
+        <div class="box project">
+
+            <h3> Learning Coding</h3>
+
+            <p>
+                I am working on a project about how to learn coding.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Soham</span> | My Personal Website ⚡
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soham's Website</title>
+
+    <!-- Stylish Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #050510;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Moving background lights */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: #00eaff;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.18;
+            top: 10%;
+            left: -150px;
+            animation: moveLight 7s infinite alternate;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: #8a2be2;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.2;
+            right: -150px;
+            bottom: 10%;
+            animation: moveLight2 8s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes moveLight {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(300px);
+            }
+        }
+
+        @keyframes moveLight2 {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-300px);
+            }
+        }
+
+
+        /* Navigation */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(5,5,16,0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(0,234,255,0.3);
+        }
+
+        nav h2 {
+            margin: 0;
+            font-family: "Orbitron";
+            color: #00eaff;
+            text-shadow: 0 0 15px #00eaff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+
+        /* Hero */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
+
+            background:
+                radial-gradient(circle at center,
+                rgba(0,234,255,0.12),
+                transparent 50%);
+        }
+
+        .hero-content {
+            animation: appear 1.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: "Orbitron";
+            font-size: clamp(38px, 8vw, 75px);
+
+            color: white;
+
+            text-shadow:
+                0 0 10px #00eaff,
+                0 0 30px #00eaff,
+                0 0 60px #0077ff;
+
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                0 0 10px #00eaff,
+                0 0 25px #00eaff;
+            }
+
+            to {
+                text-shadow:
+                0 0 20px #00eaff,
+                0 0 50px #0077ff,
+                0 0 80px #8a2be2;
+            }
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #d7eaff;
+        }
+
+
+        /* Button */
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 14px 30px;
+
+            border: 1px solid #00eaff;
+            border-radius: 30px;
+
+            color: #00eaff;
+            text-decoration: none;
+
+            box-shadow:
+                0 0 10px #00eaff,
+                inset 0 0 10px rgba(0,234,255,0.2);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00eaff;
+            color: #050510;
+
+            box-shadow:
+                0 0 20px #00eaff,
+                0 0 50px #00eaff;
+        }
+
+
+        /* Sections */
+
+        section {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-family: "Orbitron";
+            font-size: 35px;
+            color: #00eaff;
+
+            text-shadow: 0 0 15px #00eaff;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* Cards */
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .box {
+            position: relative;
+
+            width: 270px;
+            padding: 30px;
+
+            background: rgba(255,255,255,0.04);
+
+            border: 1px solid rgba(0,234,255,0.3);
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.4s;
+
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: "";
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            background: #00eaff;
+            border-radius: 50%;
+
+            filter: blur(60px);
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .box:hover {
+            transform: translateY(-12px) scale(1.03);
+
+            border-color: #00eaff;
+
+            box-shadow:
+                0 0 20px rgba(0,234,255,0.5),
+                0 0 50px rgba(0,234,255,0.15);
+        }
+
+        .box:hover::before {
+            opacity: 0.5;
+        }
+
+        .box h3 {
+            font-family: "Orbitron";
+            color: #ffffff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        .box p {
+            color: #c9d7e5;
+            line-height: 1.7;
+        }
+
+
+        /* About */
+
+        .about-box {
+            max-width: 750px;
+            margin: auto;
+        }
+
+
+        /* Project */
+
+        .project {
+            max-width: 700px;
+            margin: auto;
+        }
+
+
+        /* Footer */
+
+        footer {
+            padding: 30px;
+            text-align: center;
+
+            border-top: 1px solid rgba(0,234,255,0.3);
+
+            color: #9bb0c4;
+        }
+
+        footer span {
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 85vh;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <h2>SOHAM</h2>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#likes">Likes</a>
+            <a href="#project">Project</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Home -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>Hello! I'm Soham 👋</h1>
+
+            <p>
+                Welcome to my personal website!
+            </p>
+
+            <a href="#about" class="btn">
+                Explore My World ⚡
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- About -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <div class="box about-box">
+
+            <p>
+                Hello! My name is Soham. I am a student and I enjoy
+                learning new things, exploring science and technology,
+                and working on interesting projects.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Likes -->
+
+    <section id="likes">
+
+        <h2>Things I Like</h2>
+
+        <div class="cards">
+
+
+            <div class="box">
+
+                <h3>💻 Technology</h3>
+
+                <p>
+                    I like computers, coding and learning about technology.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🔬 Science</h3>
+
+                <p>
+                    I enjoy science, experiments and discovering how things work.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🌍 Nature</h3>
+
+                <p>
+                    I care about no one.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Project -->
+
+    <section id="project">
+
+        <h2>My Project</h2>
+
+        <div class="box project">
+
+            <h3> Learning Coding</h3>
+
+            <p>
+                I am working on a project about how to learn coding.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Soham</span> | My Personal Website ⚡
+        </p>
+
+    </footer>
+
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>Soham's Website</title>
+
+    <!-- Stylish Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #050510;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Moving background lights */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: #00eaff;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.18;
+            top: 10%;
+            left: -150px;
+            animation: moveLight 7s infinite alternate;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: #8a2be2;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.2;
+            right: -150px;
+            bottom: 10%;
+            animation: moveLight2 8s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes moveLight {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(300px);
+            }
+        }
+
+        @keyframes moveLight2 {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-300px);
+            }
+        }
+
+
+        /* Navigation */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(5,5,16,0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(0,234,255,0.3);
+        }
+
+        nav h2 {
+            margin: 0;
+            font-family: "Orbitron";
+            color: #00eaff;
+            text-shadow: 0 0 15px #00eaff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+
+        /* Hero */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
+
+            background:
+                radial-gradient(circle at center,
+                rgba(0,234,255,0.12),
+                transparent 50%);
+        }
+
+        .hero-content {
+            animation: appear 1.5s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: "Orbitron";
+            font-size: clamp(38px, 8vw, 75px);
+
+            color: white;
+
+            text-shadow:
+                0 0 10px #00eaff,
+                0 0 30px #00eaff,
+                0 0 60px #0077ff;
+
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow:
+                0 0 10px #00eaff,
+                0 0 25px #00eaff;
+            }
+
+            to {
+                text-shadow:
+                0 0 20px #00eaff,
+                0 0 50px #0077ff,
+                0 0 80px #8a2be2;
+            }
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #d7eaff;
+        }
+
+
+        /* Button */
+
+        .btn {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 14px 30px;
+
+            border: 1px solid #00eaff;
+            border-radius: 30px;
+
+            color: #00eaff;
+            text-decoration: none;
+
+            box-shadow:
+                0 0 10px #00eaff,
+                inset 0 0 10px rgba(0,234,255,0.2);
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00eaff;
+            color: #050510;
+
+            box-shadow:
+                0 0 20px #00eaff,
+                0 0 50px #00eaff;
+        }
+
+
+        /* Sections */
+
+        section {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-family: "Orbitron";
+            font-size: 35px;
+            color: #00eaff;
+
+            text-shadow: 0 0 15px #00eaff;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* Cards */
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .box {
+            position: relative;
+
+            width: 270px;
+            padding: 30px;
+
+            background: rgba(255,255,255,0.04);
+
+            border: 1px solid rgba(0,234,255,0.3);
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.4s;
+
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: "";
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            background: #00eaff;
+            border-radius: 50%;
+
+            filter: blur(60px);
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .box:hover {
+            transform: translateY(-12px) scale(1.03);
+
+            border-color: #00eaff;
+
+            box-shadow:
+                0 0 20px rgba(0,234,255,0.5),
+                0 0 50px rgba(0,234,255,0.15);
+        }
+
+        .box:hover::before {
+            opacity: 0.5;
+        }
+
+        .box h3 {
+            font-family: "Orbitron";
+            color: #ffffff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        .box p {
+            color: #c9d7e5;
+            line-height: 1.7;
+        }
+
+
+        /* About */
+
+        .about-box {
+            max-width: 750px;
+            margin: auto;
+        }
+
+
+        /* Project */
+
+        .project {
+            max-width: 700px;
+            margin: auto;
+        }
+
+
+        /* Footer */
+
+        footer {
+            padding: 30px;
+            text-align: center;
+
+            border-top: 1px solid rgba(0,234,255,0.3);
+
+            color: #9bb0c4;
+        }
+
+        footer span {
+            color: #00eaff;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 85vh;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <h2>SOHAM</h2>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#likes">Likes</a>
+            <a href="#project">Project</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Home -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>Hello! I'm Soham 👋</h1>
+
+            <p>
+                Welcome to my personal website!
+            </p>
+
+            <a href="#about" class="btn">
+                Explore My World ⚡
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- About -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <div class="box about-box">
+
+            <p>
+                Hello! My name is Soham. I am a student and I enjoy
+                learning new things, exploring science and technology,
+                and working on interesting projects.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Likes -->
+
+    <section id="likes">
+
+        <h2>Things I Like</h2>
+
+        <div class="cards">
+
+
+            <div class="box">
+
+                <h3>💻 Technology</h3>
+
+                <p>
+                    I like computers, coding and learning about technology.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🔬 Science</h3>
+
+                <p>
+                    I enjoy science, experiments and discovering how things work.
+                </p>
+
+            </div>
+
+
+            <div class="box">
+
+                <h3>🌍 Nature</h3>
+
+                <p>
+                    I care about no one.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Project -->
+
+    <section id="project">
+
+        <h2>My Project</h2>
+
+        <div class="box project">
+
+            <h3> Learning Coding</h3>
+
+            <p>
+                I am working on a project about how to learn coding.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Soham</span> | My Personal Website ⚡
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
